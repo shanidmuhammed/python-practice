@@ -9,7 +9,6 @@ def head(file_name):
 def tail(file_name):
     with open(file_name) as f:
         data = f.readlines()
-    length = len(data)
     for i in range(1,11):
         print(data[-i])
 
