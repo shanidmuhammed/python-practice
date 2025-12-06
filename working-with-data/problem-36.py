@@ -7,11 +7,13 @@ def find_freq(word):
     return freq
 
 def anagrams(values):
-    freqs = []
-    for val in values:
-        freqs[val] = find_freq(val)
-    for i in range(len(freqs)):
-        for j in range(i, len(freqs)):
-            if freqs[]
+    result = []
+    for i in range(len(values)):
+        result[i] = values[i]
+        for j in range(i, len(values)):
+            if find_freq(values[i]) == find_freq(values[j]):
+                result[i].append(values[j])
+    return result
+
 
 print(anagrams(['eat', 'ate', 'done', 'tea', 'soup', 'node']))

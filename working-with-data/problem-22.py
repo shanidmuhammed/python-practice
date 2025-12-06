@@ -3,14 +3,13 @@
 def word_wrap(filename, width):
     with open(filename) as f:
         for line in f:
-            line = line.rstrip("\n")
-
+            i = width
             while len(line) > width:
-                value = line[:width]
-                if value == 
-                line = line[width:]
-            print(line)
+                if line[(i-1)] != ' ':
+                    i -= 1
+                    continue
+                print(line[:i])
+                line = line[i:]
+            print(line, end="")
 
 word_wrap("grep.txt", 30)
-
-# Incompleted
