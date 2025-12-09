@@ -3,10 +3,9 @@
 import re
 
 def validate(number):
-    number = str(number)
-    if len(number) < 7 or len(number) > 12:
+    str_num = str(number)
+    if len(str_num) < 7 or len(str_num) > 13:
         return "Not a phone number"
-    result = re.fullmatch(r'\D', number)
-    print(result)
+    return bool(re.fullmatch(r'\d+', str_num))
 
-print(validate(9834842459))
+print(validate(1111))
