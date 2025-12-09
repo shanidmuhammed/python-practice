@@ -2,16 +2,14 @@
 
 import os
 
-current_dir = os.getcwd()
-
-def findfiles(dir_name): 
+def findfiles(dir_name):
     for file in os.listdir(dir_name):
         path = os.path.join(dir_name, file)
         if os.path.isdir(path):
-            findfiles(path)
+            yield from findfiles(path)
         else:
-            yield os.path.abspath(path)
+            yield path
 
-paths = findfiles('../../python-practice')
-for path in paths:  
-    print(path)
+paths = findfiles('../functional-programming')
+for path in paths:
+    print(path) 
