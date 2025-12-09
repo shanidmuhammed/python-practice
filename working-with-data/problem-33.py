@@ -8,4 +8,4 @@ def nearly_equal(word1, word2):
             count += 1
     return count >= len(chars) - 1
 
-print(nearly_equal('python', 'perl'))
+print(nearly_equal('abc', 'zzz'))
