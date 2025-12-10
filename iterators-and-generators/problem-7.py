@@ -4,14 +4,18 @@ import sys
 
 def split_file(n, filename):
     with open(filename) as f:
-        for line in f.readlines():
-            content = []
-            for _ in range(n):
-                content.append(line)
-        yield [*content]
+        for line in f:
+            yield line
 
 n = int(sys.argv[1])
 filename = sys.argv[2]
 result = split_file(n, filename)
-for res in result:
-    print(res)
+j = 0
+while(True):
+    j += 1
+    try:
+        with open(f"file{j}.txt", 'w') as f:
+            for i in range(n):
+                f.write(next(result))
+    except StopIteration:
+        break
